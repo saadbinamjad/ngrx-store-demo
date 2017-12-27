@@ -52,3 +52,8 @@ export function reducer(state = initialState,
 
     return state;
 }
+
+export const getBooksLoading = (state: BookState) => state.loading;
+export const getBooksLoaded = (state: BookState) => state.loaded;
+export const getBooks = (state: BookState) => state.data;
+
