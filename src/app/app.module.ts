@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from "@ngrx/effects";
+
 
 const appRoutes: Routes = [
   {
@@ -18,7 +20,8 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     StoreModule.forRoot({}, {}),
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    EffectsModule.forRoot([])
   ],
   providers: [],
   bootstrap: [AppComponent]

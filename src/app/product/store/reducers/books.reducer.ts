@@ -1,4 +1,5 @@
 import * as fromBooks from '../actions/books.action';
+
 import { Books } from '../../models/books.model';
 
 export interface BookState {
@@ -8,18 +9,7 @@ export interface BookState {
 }
 
 export const initialState: BookState = {
-    data: [{
-        "id": 1,
-        "name": "Batman"
-    },
-    {
-        "id": "2",
-        "name": "Captain America"
-    },
-    {
-        "name": "Superman",
-        "id": 3
-    }],
+    data: [],
     loaded: false,
     loading: false
 }
@@ -34,10 +24,12 @@ export function reducer(state = initialState,
             };
         }
         case fromBooks.LOAD_BOOKS_SUCCESS: {
+            const data = action.payload;
             return {
                 ...state,
                 loading: false,
-                loaded: true
+                loaded: true,
+                data
             }
         }
         case fromBooks.LOAD_BOOKS_FAIL: {
