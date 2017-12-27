@@ -2,13 +2,24 @@ import * as fromBooks from '../actions/books.action';
 import { Books } from '../../models/books.model';
 
 export interface BookState {
-    data: any;
+    data: Books[];
     loaded: boolean;
     loading: boolean;
 }
 
 export const initialState: BookState = {
-    data: Books,
+    data: [{
+        "id": 1,
+        "name": "Batman"
+    },
+    {
+        "id": "2",
+        "name": "Captain America"
+    },
+    {
+        "name": "Superman",
+        "id": 3
+    }],
     loaded: false,
     loading: false
 }

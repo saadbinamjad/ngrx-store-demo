@@ -1,4 +1,4 @@
 export class Books {
-    id: Number;
-    name: String;
+    id: any;
+    name: String
 }
