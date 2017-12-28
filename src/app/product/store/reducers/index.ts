@@ -25,8 +25,13 @@ export const getBookState = createSelector(
   (state: ProductsState) => state.books
 );
 
-export const getAllBooks = createSelector(getBookState, fromBooks.getBooks);
-
+export const getBooksEntities = createSelector(
+  getBookState,
+  fromBooks.getBooksEntities
+);
+export const getAllBooks = createSelector(getBooksEntities, entities => {
+  return Object.keys(entities).map(id => entities[id]);
+});
 export const getBooksLoaded = createSelector(
   getBookState,
   fromBooks.getBooksLoaded

@@ -6,7 +6,6 @@ import { StoreModule } from "@ngrx/store";
 import { reducers, effects } from "./store";
 import { BooksService } from "./services/books.service";
 import { HttpClientModule } from "@angular/common/http";
-
 import { EffectsModule } from "@ngrx/effects";
 
 export const productRoutes: Routes = [
@@ -22,9 +21,9 @@ export const productRoutes: Routes = [
     HttpClientModule,
     RouterModule.forChild(productRoutes),
     StoreModule.forFeature("products", reducers),
-    EffectsModule.forFeature(effects)
+    EffectsModule.forFeature(effects),
   ],
   declarations: [ProductComponent],
-  providers: [BooksService],
+  providers: [BooksService]
 })
 export class ProductModule {}

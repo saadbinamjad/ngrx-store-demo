@@ -8,7 +8,7 @@ import * as booksActions from "../actions/books.action";
 @Injectable()
 export class BooksEffects {
   constructor(
-    private actions$: Actions<any, any>,
+    private actions$: Actions<{}, {}>,
     private bookService: fromServices.BooksService
   ) {}
   @Effect()

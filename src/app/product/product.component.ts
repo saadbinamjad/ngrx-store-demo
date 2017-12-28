@@ -16,17 +16,7 @@ export class ProductComponent implements OnInit {
   constructor(private store: Store<fromStore.ProductsState>) {}
 
   ngOnInit() {
-    // state of product module
-
     this.books$ = this.store.select<any>(fromStore.getAllBooks);
-
-    // first action
     this.store.dispatch(new fromStore.LoadBooks());
-
-    
-
-    // this.store.select<any>(fromStore.getAllBooks).subscribe(state => {
-    //   this.books = state;
-    // });
   }
 }
