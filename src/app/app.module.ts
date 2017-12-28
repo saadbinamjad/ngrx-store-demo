@@ -5,6 +5,12 @@ import { RouterModule, Routes } from "@angular/router";
 import { StoreModule } from "@ngrx/store";
 import { EffectsModule } from "@ngrx/effects";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
+import {
+  StoreRouterConnectingModule,
+  RouterStateSerializer
+} from "@ngrx/router-store";
+
+import { reducers, CustomSerializer } from "./store";
 
 const appRoutes: Routes = [
   {
@@ -17,12 +23,18 @@ const appRoutes: Routes = [
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot(reducers, {}),
     RouterModule.forRoot(appRoutes),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument(),
+    StoreRouterConnectingModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: RouterStateSerializer,
+      useClass: CustomSerializer
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
