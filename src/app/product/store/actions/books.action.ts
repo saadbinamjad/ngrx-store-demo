@@ -3,8 +3,8 @@ import { Action } from '@ngrx/store';
 
 // Consts
 export const LOAD_BOOKS = '[Products] Load Books';
-export const LOAD_BOOKS_FAIL = '[Products] Load Books Success';
-export const LOAD_BOOKS_SUCCESS = '[Products] Load Books Failed';
+export const LOAD_BOOKS_FAIL = '[Products] Load Books Failed';
+export const LOAD_BOOKS_SUCCESS = '[Products] Load Books Success';
 
 // Creators
 

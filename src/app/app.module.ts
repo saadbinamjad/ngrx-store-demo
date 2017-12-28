@@ -20,7 +20,7 @@ const appRoutes: Routes = [
     StoreModule.forRoot({}, {}),
     RouterModule.forRoot(appRoutes),
     EffectsModule.forRoot([]),
-    StoreDevtoolsModule,
+    StoreDevtoolsModule.instrument(),
   ],
   providers: [],
   bootstrap: [AppComponent]
