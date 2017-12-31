@@ -1,9 +1,9 @@
-import { createSelector } from "@ngrx/store";
-import * as fromRoot from "../../../../app/store";
-import * as fromFeature from "../reducers";
-import * as fromBooks from "../reducers/books.reducer";
+import { createSelector } from '@ngrx/store';
+import * as fromRoot from '../../../../app/store';
+import * as fromFeature from '../reducers';
+import * as fromBooks from '../reducers/books.reducer';
 
-import { Books } from '../../models/books.model'; 
+import { Books } from '../../models/books.model';
 
 export interface ProductsState {
   books: fromBooks.BookState;
@@ -33,7 +33,7 @@ export const getBooksLoading = createSelector(
 export const getSelectedBook = createSelector(
   getBooksEntities,
   fromRoot.getRouterState,
-  (entities, router) : Books => {
+  (entities, router): Books => {
     return router.state && entities[router.state.params['bookId']];
   }
-)
+);

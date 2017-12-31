@@ -3,3 +3,6 @@
   <a routerLink="/products/{{book.id}}">{{ book.id }} : {{ book.name}}</a>
   <br/>
 </ng-container>
+
+<h2> Input New Book: </h2>
+Name: <input [(ngModel)]="formData.name"><button (click)="createBooks()">Create</button>

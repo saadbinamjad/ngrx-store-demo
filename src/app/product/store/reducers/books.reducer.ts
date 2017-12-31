@@ -1,5 +1,5 @@
-import * as fromBooks from "../actions/books.action";
-import { Books } from "../../models/books.model";
+import * as fromBooks from '../actions/books.action';
+import { Books } from '../../models/books.model';
 
 export interface BookState {
   entities: { [id: number]: Books };
@@ -51,6 +51,31 @@ export function reducer(
         loaded: false,
         loading: false
       };
+    }
+
+    case fromBooks.CREATE_BOOKS: {
+      return {
+        ...state,
+        loaded: false,
+        loading: false
+      };
+    }
+
+    case fromBooks.CREATE_BOOKS_FAIL: {
+      return {
+        ...state,
+        loaded: false,
+        loading: false
+      };
+    }
+
+    case fromBooks.CREATE_BOOKS_SUCCESS: {
+      const book = action.payload;
+      const entities = {
+        ...state.entities,
+        [book.id]: book
+      };
+      return { ...state, entities };
     }
   }
 
