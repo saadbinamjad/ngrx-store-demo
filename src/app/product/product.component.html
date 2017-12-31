@@ -1,4 +1,5 @@
 <h2> Available Books: </h2>
 <ng-container *ngFor="let book of (books$ | async)">
-  <p>{{ book.id }} : {{ book.name}}</p>
+  <a routerLink="/products/{{book.id}}">{{ book.id }} : {{ book.name}}</a>
+  <br/>
 </ng-container>

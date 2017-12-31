@@ -7,6 +7,7 @@ import { reducers, effects } from "./store";
 import { BooksService } from "./services/books.service";
 import { HttpClientModule } from "@angular/common/http";
 import { EffectsModule } from "@ngrx/effects";
+import { ItemComponent } from './item/item.component';
 
 export const productRoutes: Routes = [
   {
@@ -14,8 +15,12 @@ export const productRoutes: Routes = [
     component: ProductComponent
   },
   {
-    path: ":id",
-    component: ProductComponent
+    path: "new",
+    component: ItemComponent
+  },
+  {
+    path: ":bookId",
+    component: ItemComponent
   }
 ];
 
@@ -27,7 +32,7 @@ export const productRoutes: Routes = [
     StoreModule.forFeature("products", reducers),
     EffectsModule.forFeature(effects),
   ],
-  declarations: [ProductComponent],
+  declarations: [ProductComponent, ItemComponent],
   providers: [BooksService]
 })
 export class ProductModule {}
